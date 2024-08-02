@@ -1,53 +1,75 @@
-import React, { useState, useContext } from 'react'
-import AuthService from '../services/AuthService'
-import Message from '../components/Message'
-import { AuthContext } from '../context/AuthContext'
+import React from 'react'
+import Video from '../assets/couplecooking.mp4'
+import '../components/navbar/logo.jpg'
+import './loginpage.css'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Col from 'react-bootstrap/Col';
+import logoo from './logo.jpg'
+import { PolygonCard } from 'react-awesome-shapes/dist/shapes/polygonCard';
 
-function Login(props) {
-    const [user, setUser] = useState({ username: '', password: '' })
-    const [message, setMessage] = useState(null)
-    const authContext = useContext(AuthContext)
+const Loginpage = () => {
+  return (
+    <div className='login'>
 
-    function onChange(e){
-        setUser({ ...user, [e.target.name]: e.target.value })
-    }
-
-    function onSubmit(e){
-        e.preventDefault()
-        AuthService.login(user).then(data => {
-            const { isAuthenticated, user, message } = data
-            if(isAuthenticated){
-                authContext.setUser(user)
-                authContext.setIsAuthenticated(isAuthenticated)
-                props.history.push('/todos')
-            }else{
-                setMessage(message)
-            }
-        })
-    }
-
-    return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <h3>Please sign in</h3>
-                {message ? <Message message={message} /> : null}
-                <label htmlFor="username" className="sr-only">Username: </label>
-                <input type="text" 
-                        name="username" 
-                        onChange={onChange} 
-                        className="form-control" 
-                        placeholder="Enter username" 
-                />
-                <input type="password" 
-                        name="password" 
-                        onChange={onChange} 
-                        className="form-control" 
-                        placeholder="Enter password" 
-                />
-                <button className="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-            </form>
-        </div>
-    )
+       <video className='bg'
+        loop autoPlay muted 
+        src={Video} 
+        type="video/mp4"
+         />
+         <PolygonCard className='cardy'
+    height="400px"
+    width="500px"
+    zIndex={2}
+    color="linear-gradient(45deg, #50C878, #FFD859)"
+    
+/>
+       <div className='center'>
+       
+       <div>
+       
+       <Form >
+        
+       <img
+              alt=""
+              src={logoo}
+              width="200"
+              height="200"
+              className="rounded logo"
+      />
+       
+        
+        <InputGroup className='mt-2 input'>
+          <Form.Control
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
+        <InputGroup className='mt-2 input'>
+          <Form.Control
+            placeholder="Password"
+            aria-label="Password"
+            aria-describedby="basic-addon1"
+          />
+        </InputGroup>
+       
+          <Col xs="auto" className=' mt-3'>
+            <Button  type="submit">Sign In</Button>
+          </Col>
+          <Col xs="auto" className='mt-2'>
+            <Button type="submit">New to <b>Groceries?</b> <br></br><u>Sign Up</u></Button>
+          </Col>
+      </Form>
+      
+    
+      </div>
+      </div> 
+    </div>
+  )
 }
 
-export default Login
+export default Loginpage
+
+

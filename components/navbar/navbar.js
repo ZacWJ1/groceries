@@ -1,31 +1,41 @@
 import React from 'react';
 import './navbar.css'
-import { Navbar} from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { LinkContainer } from 'react-router-bootstrap';
+import Container from 'react-bootstrap/Container';
+import logoo from './logo.jpg'
+import { useLocation } from 'react-router';
+
 
 
 const NavBar = () => {
+  const location = useLocation()
+
+  if(location.pathname === '/login') {
+    return null
+  }
+  
   return (
-    <Navbar className='gradient_bg px-5' sticky='top' bg='dark' expand='lg' >
-      <LinkContainer to="/">
-        <Navbar.Brand>Food Sync</Navbar.Brand>
-      </LinkContainer>
-      <Navbar.Toggle aria-controls='basic-navbar-nav' />
-      <Navbar.Collapse id='basic-navbar-nav'>
-        <Nav className='container-fluid' variant='underline'>
-          <LinkContainer to='link-1'>
-            <Nav.Link className='mr-lg-2'>Home</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to='link-2'>
-            <Nav.Link className='mr-lg-1'>Recipes</Nav.Link>
-          </LinkContainer>
-          <LinkContainer to='link-3' className='ms-auto'>
-            <Nav.Link >Login/Logout</Nav.Link>
-          </LinkContainer>
-          
-        </Nav>
-      </Navbar.Collapse>
+    <Navbar expand="xl" className=" gradient_bg navi">
+      <Container>
+      <Navbar.Brand href="#home" className='font-bold'>
+      <img
+              alt=""
+              src={logoo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top rounded"
+      />{' '}
+       Groceries</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto underline">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Recipes</Nav.Link>
+            
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 };
