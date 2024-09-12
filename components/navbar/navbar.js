@@ -3,7 +3,7 @@ import './navbar.css'
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import logoo from './logo.jpg'
+import logoo from './G.png'
 import { useLocation } from 'react-router';
 
 
@@ -22,16 +22,18 @@ const NavBar = () => {
       <img
               alt=""
               src={logoo}
-              width="30"
-              height="30"
+              width="50"
+              height="50"
               className="d-inline-block align-top rounded"
-      />{' '}
-       Groceries</Navbar.Brand>
+      />
+       </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto underline">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Recipes</Nav.Link>
+            <Nav.Link href="#link">About</Nav.Link>
+            <Nav.Link href="#link">Logout</Nav.Link>
             
           </Nav>
         </Navbar.Collapse>

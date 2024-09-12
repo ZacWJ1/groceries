@@ -1,0 +1,8 @@
+.bg{
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    object-fit: cover;
+    position: fixed;
+    background-color: #e8f8f5;
+}

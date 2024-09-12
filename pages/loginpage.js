@@ -1,30 +1,29 @@
 import React from 'react'
 import Video from '../assets/couplecooking.mp4'
-import '../components/navbar/logo.jpg'
 import './loginpage.css'
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
+import Button from '@mui/material/Button'
 import InputGroup from 'react-bootstrap/InputGroup';
 import Col from 'react-bootstrap/Col';
-import logoo from './logo.jpg'
+import logooo from './logotwo.jpg'
 import { PolygonCard } from 'react-awesome-shapes/dist/shapes/polygonCard';
 
 const Loginpage = () => {
   return (
-    <div className='login'>
-
+    <div >
+      <div className='login'>
        <video className='bg'
         loop autoPlay muted 
         src={Video} 
         type="video/mp4"
          />
-         <PolygonCard className='cardy'
-    height="400px"
-    width="500px"
-    zIndex={2}
-    color="linear-gradient(45deg, #50C878, #FFD859)"
-    
-/>
+         <PolygonCard className=' cardy'
+           height="400px"
+           width="500px"
+           zIndex={2}
+          color="linear-gradient(45deg, #50C878, #FFD859)"
+          />
        <div className='center'>
        
        <div>
@@ -33,10 +32,10 @@ const Loginpage = () => {
         
        <img
               alt=""
-              src={logoo}
+              src={logooo}
               width="200"
               height="200"
-              className="rounded logo"
+              className="rounded logo object-cover"
       />
        
         
@@ -56,16 +55,19 @@ const Loginpage = () => {
         </InputGroup>
        
           <Col xs="auto" className=' mt-3'>
-            <Button  type="submit">Sign In</Button>
+            <Button variant="contained" color="success" /*className='btns'  type="submit"*/>Sign In</Button>
           </Col>
           <Col xs="auto" className='mt-2'>
-            <Button type="submit">New to <b>Groceries?</b> <br></br><u>Sign Up</u></Button>
+            <Button size='small' variant="contained" color="success"className='btns' /* type="submit"*/ >
+           <span>New to  Groceries? <br></br><b><u>Sign Up</u></b></span> 
+            </Button>
           </Col>
       </Form>
       
     
       </div>
       </div> 
+      </div>
     </div>
   )
 }

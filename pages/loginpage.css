@@ -3,10 +3,10 @@
     margin: auto;
 }
 .cardy{
-   position: absolute;
-   left: 25%;
+   top: 25%;
    opacity: 80%;
-    top: 25%;
+   margin: auto;
+   left: 25%;
      
 }
 
@@ -17,6 +17,7 @@
      justify-content: center;
      margin-top: 200px;
      z-index: 2;
+     
      margin-left: auto;
      margin-right: auto;
 }
@@ -29,14 +30,15 @@
 }
 
 .btns{
-    text-decoration: underline;
+    background-color: cornsilk;
 }
+
 
 .bg{
     height: 100%;
     width: 100%;
     z-index: 0;
-    position: fixed;
+    position: absolute;
     object-fit: cover;
 }
 /*.bimg{
